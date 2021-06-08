@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
-import plotly as plotly
-import plotly.express as px
+import plotly_express as px
 
 
 #Titles and Mode selections
