@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import plotly_express as px
+import plotly.express as px
 
 
 #Titles and Mode selections
@@ -15,7 +15,7 @@ st.sidebar.info(
 )
 st.sidebar.title("Comment")
 st.sidebar.info("Feel free to comment on work. The github link can be found "
-                "[here](https://github.com/marinemnrd/Covid_Dash_OpenSource)")
+                "[here]()")
 
 
 st.title("COVID DASHBOARD")
@@ -34,7 +34,7 @@ st.markdown(("* Fever or chills\n* Cough\n"
              "* Diarrhea"))
 
 
-st.image('monalisa.jpeg')
+st.image('covid.jpeg')
 
 #Load Data
 df_case = pd.read_csv('Clean_Confirmed_Case.csv')
