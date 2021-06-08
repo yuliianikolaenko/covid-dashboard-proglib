@@ -14,11 +14,11 @@ selectbox = st.sidebar.selectbox('Type',('death','case'))
 st.sidebar.title("About")
 st.sidebar.info(
     """
-    Thus app is maintained by Team 6, Paul, Marine and Elizabeth.
+    This app in Open Source
     """
 )
 st.sidebar.title("Comment")
-st.sidebar.info("Feel free to comment on our work. The github link can be found "
+st.sidebar.info("Feel free to comment on work. The github link can be found "
                 "[here](https://github.com/marinemnrd/Covid_Dash_OpenSource)")
 
 
@@ -41,11 +41,11 @@ st.markdown(("* Fever or chills\n* Cough\n"
 st.image('monalisa.jpeg')
 
 #Load Data
-df_case = pd.read_csv(r'https://raw.githubusercontent.com/marinemnrd/Covid_Dash_OpenSource/main/Datas/Clean_Confirmed_Case.csv')
+df_case = pd.read_csv('Clean_Confirmed_Case.csv')
 df_case = df_case.set_index(['Date'])
-df_Death = pd.read_csv(r'https://raw.githubusercontent.com/marinemnrd/Covid_Dash_OpenSource/main/Datas/Clean_Death.csv')
+df_Death = pd.read_csv('Clean_Death.csv')
 df_Death = df_Death.set_index(['Date'])
-df_Recovered = pd.read_csv(r'https://raw.githubusercontent.com/marinemnrd/Covid_Dash_OpenSource/main/Datas/Clean_Recovered.csv')
+df_Recovered = pd.read_csv('Clean_Recovered.csv')
 df_Recovered = df_Recovered.set_index(['Date'])
 
 
