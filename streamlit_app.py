@@ -1,10 +1,6 @@
 import streamlit as st
 import pandas as pd
-from plotly import plotly
 import plotly.express as px
-import numpy as np
-import datetime
-import time
 
 
 #Titles and Mode selections
