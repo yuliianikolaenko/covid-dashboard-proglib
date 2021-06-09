@@ -26,7 +26,7 @@ def draw_map_deaths():
                          color="total_deaths",
                          hover_name="location",
                          #animation_frame="date",
-                         title="Total COVID 19 cases in the world",
+                         title="Total deaths from COVID 19 in the world",
                          color_continuous_scale=px.colors.sequential.Greys)
     return fig
 
@@ -35,7 +35,7 @@ def draw_map_vaccine():
                          color="total_vaccinations",
                          hover_name="location",
                          #animation_frame="date",
-                         title="Total COVID 19 cases in the world",
+                         title="Total vaccinated from COVID 19 in the world",
                          color_continuous_scale=px.colors.sequential.Greens)
     return fig
 
