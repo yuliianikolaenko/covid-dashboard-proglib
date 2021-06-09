@@ -1,5 +1,4 @@
 # Covid 19 in the World Open Source DashBoard 📈  <p style='text-align: right;'> ![this](https://coronavirus.jhu.edu/static/media/jhu-logo-white-horizontal.68872b26.svg) </p>
-
 This Streamlit app is [deployed on Streamlit Sharing](https://share.streamlit.io/). You can also clic on this [link](https://share.streamlit.io/yuliianikolaenko/covid_dashboard_proglib/main) to visualize the dashboard.
 
  ## Set Up 
