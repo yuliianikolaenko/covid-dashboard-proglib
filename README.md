@@ -12,7 +12,8 @@ pip install -r requirements.txt
 ```
 
 ## Data 
-<code>data.csv</code>: Data on COVID-19 (coronavirus) by Our World in Data could be found [here](https://github.com/owid/covid-19-data/tree/master/public/data).
+
+<code>data.csv</code>: data on COVID-19 (coronavirus) by Our World in Data, can be found [here](https://github.com/owid/covid-19-data/tree/master/public/data).
 
 
 ## Launching the App
