@@ -16,7 +16,7 @@ pip install -r requirements.txt
 Run the following line in the terminal then go to the suggested URL. It will launch the Dashboard locally.
 
 ```
-streamlit run app.py
+streamlit run streamlit_app.py
 ```
 Enjoy ! 
 
