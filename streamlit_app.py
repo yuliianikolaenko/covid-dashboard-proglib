@@ -16,7 +16,6 @@ def draw_map_cases():
     fig = px.choropleth(df, locations="iso_code",
                          color="total_cases",
                          hover_name="location",
-                         #animation_frame="date",
                          title="Total COVID 19 cases in the world",
                          color_continuous_scale=px.colors.sequential.Redor)
     return fig
@@ -25,7 +24,6 @@ def draw_map_deaths():
     fig = px.choropleth(df, locations="iso_code",
                          color="total_deaths",
                          hover_name="location",
-                         #animation_frame="date",
                          title="Total deaths from COVID 19 in the world",
                          color_continuous_scale=px.colors.sequential.Greys)
     return fig
@@ -34,7 +32,6 @@ def draw_map_vaccine():
     fig = px.choropleth(df, locations="iso_code",
                          color="total_vaccinations",
                          hover_name="location",
-                         #animation_frame="date",
                          title="Total vaccinated from COVID 19 in the world",
                          color_continuous_scale=px.colors.sequential.Greens)
     return fig
