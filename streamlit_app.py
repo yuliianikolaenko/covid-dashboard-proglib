@@ -2,15 +2,26 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import plotly.express as px
-from plotly.subplots import make_subplots
-import plotly.graph_objects as go
-import matplotlib.pyplot as plt
-from datetime import datetime
 
+#functions
+def load_data():
+    df = pd.read_csv('owid-covid-data.csv')
+    df = df[df.location != 'World']
+    df["date"] = pd.to_datetime(df["date"])
+    return df
+
+def draw_map(fig):
+    fig = px.choropleth(df, locations="iso_code",
+                         color="total_cases",
+                         hover_name="location",
+                         animation_frame="date",
+                         title="Total COVID 19 cases in the world",
+                         color_continuous_scale=px.colors.sequential.Redor)
+    return fig
 
 st.title("COVID 19 IN THE WORLD DASHBOARD")
 st.write("""This dashboard will present the spread of COVID-19 in the world by visualizing the timeline of the total cases and deaths. As well as the total number of vaccinated people.""")
-st.markdown("### Data on COVID-19 (coronavirus) by Our World in Data could be found [here](https://github.com/owid/covid-19-data/tree/master/public/data)")
+st.markdown("#### Data on COVID-19 (coronavirus) by Our World in Data could be found [here](https://github.com/owid/covid-19-data/tree/master/public/data).")
 
 #Titles and Mode selections
 st.sidebar.title("About")
@@ -20,55 +31,27 @@ st.sidebar.info(
     """
 )
 st.sidebar.info("Feel free to collaborate and comment on the work. The github link can be found "
-                "[here](https://github.com/yuliianikolaenko/COVID_dashboard_proglib)")
+                "[here](https://github.com/yuliianikolaenko/COVID_dashboard_proglib).")
 
-st.sidebar.title("Menu")
-st.sidebar.radio("Navigate", ["Intro", "Data", "Map"])
 
-#Load Data
-df = pd.read_csv('owid-covid-data.csv')
-df = df[df.location != 'World']
-df["date"] = pd.to_datetime(df["date"])
+# Load data
+df = load_data()
+
 # Calculate the timerange for the slider
 min_ts = min(df["date"]).to_pydatetime()
 max_ts = max(df["date"]).to_pydatetime()
 
 ##### SIDEBAR
 #selectbox to chose between cases, deaths or total_vaccinations
-select_event = st.sidebar.selectbox('Select', ['total_cases', 'total_deaths', 'total_vaccinations'])
+select_event = st.sidebar.selectbox('Show map', ('total_cases', 'total_deaths', 'total_vaccinations'))
 if select_event == 'total_cases':
-    fig1 = px.choropleth(df, locations="iso_code",
-                         color="total_cases",
-                         hover_name="location",
-                         animation_frame="date",
-                         title="Total COVID 19 cases in the world",
-                         color_continuous_scale=px.colors.sequential.Redor)
-
-    fig1["layout"].pop("updatemenus")
-    st.plotly_chart(fig1)
-
+    st.plotly_chart(draw_map(df), use_container_width=True)
 
 if select_event == 'total_deaths':
-    fig2 = px.choropleth(df, locations="iso_code",
-                         color="total_deaths",
-                         hover_name="location",
-                         animation_frame="date",
-                         title="Total deaths from COVID 19 in the world",
-                         color_continuous_scale=px.colors.sequential.Greys)
-
-    fig2["layout"].pop("updatemenus")
-    st.plotly_chart(fig2)
+    st.plotly_chart(draw_map(df), use_container_width=True)
 
 if select_event == 'vaccinations':
-    fig3 = px.choropleth(df, locations="iso_code",
-                         color="total_vaccinations",
-                         hover_name="location",
-                         animation_frame="date",
-                         title="Total vaccinated people in the world",
-                         color_continuous_scale=px.colors.sequential.Greys)
-
-    fig3["layout"].pop("updatemenus")
-    st.plotly_chart(fig3)
+    st.plotly_chart(draw_map(df), use_container_width=True)
 
 ##### SIDEBAR
 #slider to chose date
