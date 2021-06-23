@@ -14,6 +14,7 @@ pip install -r requirements.txt
 ## Data 
 
 <code>data.csv</code>: data on COVID-19 (coronavirus) by Our World in Data, can be found [here](https://github.com/owid/covid-19-data/tree/master/public/data).
+
 <code>countries.geo.json</code>: World Country and State coordinate for plotting geospatial maps, can be found [here](https://www.kaggle.com/chapagain/country-state-geo-location).
 
 
