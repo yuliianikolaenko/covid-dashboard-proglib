@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-from urllib.request import urlopen
 import json
 
 #functions
@@ -12,8 +11,7 @@ def load_data():
     df = pd.read_csv(DATA, parse_dates=[DATE_COLUMN])
     return df
 
-with urlopen('https://storage.googleapis.com/kagglesdsdata/datasets/4456/6834/world-countries.json?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gcp-kaggle-com%40kaggle-161607.iam.gserviceaccount.com%2F20210609%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20210609T153957Z&X-Goog-Expires=259199&X-Goog-SignedHeaders=host&X-Goog-Signature=13594c9ddedccd436258d48a33dcd74195dcd598a8330ffc5f86b669ca8c744260e0db0ef9e00771989fadab546b45fe5bcf8ab0f882ec554d50488544eafcae313c57548815b3af7fcaaeafab309a95ac263680e6b5ad50a77422414cabf2b14a7e3a37486db7ec29f77428ee48a3d568d3375ec7f3a5f460001d41bde1c62514bfa195e3853fd6a5f9b046ae47f14ddd5bc35f9a33607d4eb080a1554522ba3a443f72c06a1896b8f617da4cc4b5762bff0c3c64ed739fe89669eae0011220895406f43ba81fd6ad8000eb5b53b328c2f170caee41dfeb8448c9982ea6ab3e2878200d195c2cf15e4d9e40574a8fe411f075e47b44f923524ea86e022f850f') as response:
-    json_locations = json.load(response)
+json_locations = json.load('countries.geo.json')
 
 def draw_map_cases():
     fig = px.choropleth_mapbox(df, geojson=json_locations, locations='iso_code', color='total_cases_per_million',
