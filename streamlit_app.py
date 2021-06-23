@@ -13,6 +13,7 @@ def load_data():
 
 with open('countries.geo.json') as json_file:
     json_locations = json.load(json_file)
+
 def draw_map_cases():
     fig = px.choropleth_mapbox(df, geojson=json_locations, locations='iso_code', color='total_cases_per_million',
                                color_continuous_scale="Reds",
