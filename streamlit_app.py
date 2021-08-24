@@ -60,6 +60,8 @@ st.sidebar.info(
 st.sidebar.info("Feel free to collaborate and comment on the work. The github link can be found "
                 "[here](https://github.com/yuliianikolaenko/COVID_dashboard_proglib).")
 
+st.sidebar.info("Author of the project [Linkedin](https://www.linkedin.com/in/yuliia-nikolaenko/)")
+
 
 # Load data
 df = load_data()
